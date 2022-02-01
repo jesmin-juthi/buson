@@ -14,14 +14,78 @@ add_action('after_setup_theme','buson_setup');
 
 
 function buson_scripts(){
-    wp_enqueue_style('bootstrap', get_template_directory_uri().'assets/css/bootstrap.min.css', array(), '4.1.3', 'all');
-    wp_enqueue_style('font-awesome', get_template_directory_uri().'assets/css/font-awesome.min.css', array(), '4.7.0', 'all');
+
+    // CSS
+
+    wp_enqueue_style('bootstrap', get_template_directory_uri().'/assets/css/bootstrap.min.css', array(), true, 'all');
+    wp_enqueue_style('fontawesome', get_template_directory_uri().'/assets/css/fontawesome-all.min.css', array(), true, 'all');
+    wp_enqueue_style('owl', get_template_directory_uri().'/assets/css/owl.carousel.min.css', array(), true, 'all');
+    wp_enqueue_style('slicknav', get_template_directory_uri().'/assets/css/slicknav.css', array(), true, 'all');
+    wp_enqueue_style('slick', get_template_directory_uri().'/assets/css/slick.css', array(), true, 'all');
+    wp_enqueue_style('stylecss', get_template_directory_uri().'/assets/css/style.css', array(), true, 'all');
+    wp_enqueue_style('main', get_template_directory_uri().'/assets/css/main.css', array(), true, 'all');
     wp_enqueue_style('buson-style', get_stylesheet_uri(), array(), '1.0.0', 'all');
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('bootstrap', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), '4.1.3', true);
-    wp_enqueue_script('buson-script', get_template_directory_uri().'/js/buson.js', array('jquery'), '1.0.0', true);
+
+    // JS
+
+    wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/popper.min.js', array('jquery'), true, true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.min.js', array('jquery'), true, true);
+    wp_enqueue_script('slicknav', get_template_directory_uri().'/assets/js/jquery.slicknav.min.js', array('jquery'), true, true);
+    wp_enqueue_script('carousel', get_template_directory_uri().'/assets/js/owl.carousel.min.js', array('jquery'), true, true);
+    wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.min.js', array('jquery'), true, true);
+    wp_enqueue_script('sticky', get_template_directory_uri().'/assets/js/jquery.sticky.js', array('jquery'), true, true);
+    wp_enqueue_script('main', get_template_directory_uri().'/assets/js/main.js', array('jquery'), true, true);
 }
 
+
+add_action('wp_enqueue_scripts', 'buson_scripts');
+
+// Custom post type - Slider
+
+function slider(){
+
+    $labels = array(
+        'name'                  => _x( 'Sliders', 'Post type general name', 'buson' ),
+        'singular_name'         => _x( 'Slider', 'Post type singular name', 'buson' ),
+        'menu_name'             => _x( 'Sliders', 'Admin Menu text', 'buson' ),
+        'name_admin_bar'        => _x( 'Slider', 'Add New on Toolbar', 'buson' ),
+        'add_new'               => __( 'Add New', 'buson' ),
+        'add_new_item'          => __( 'Add New slider', 'buson' ),
+        'new_item'              => __( 'New slider', 'buson' ),
+        'edit_item'             => __( 'Edit slider', 'buson' ),
+        'view_item'             => __( 'View slider', 'buson' ),
+        'all_items'             => __( 'All sliders', 'buson' ),
+        'search_items'          => __( 'Search sliders', 'buson' ),
+        'parent_item_colon'     => __( 'Parent sliders:', 'buson' ),
+        'not_found'             => __( 'No sliders found.', 'buson' ),
+        'not_found_in_trash'    => __( 'No sliders found in Trash.', 'buson' ),
+        'featured_image'        => _x( 'Slider Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'buson' ),
+        'set_featured_image'    => _x( 'Set slider image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'buson' ),
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Sliders',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'slider' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'menu_icon'          => 'dashicons-slides',
+        'supports'           => array( 'title', 'thumbnail' ),
+        // 'taxonomies'         => array( 'category', 'post_tag' ),
+        'show_in_rest'       => true
+    );
+      
+    register_post_type( 'Slider', $args );
+
+}
+
+add_action('init', 'slider');
 
 
 
