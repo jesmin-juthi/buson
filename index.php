@@ -195,72 +195,34 @@
                     </div>
                 </div>
                 <div class="row">
+                
+                    <?php 
+                    
+                    $args = array(
+                        'post_type' => 'Services',
+                        'posts_per_page' => 6,
+                    );
+
+                    $services = new WP_Query($args);
+
+                    while($services->have_posts()): $services->the_post();
+                    
+                    ?>
+
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-services text-center">
                             <div class="services-icon">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_1.png" alt="">
+                                <img src="<?php the_post_thumbnail_url(); ?>" alt="">
                             </div>
                             <div class="services-caption">
-                                <h4>Strategic Planning</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                                <h4><?php the_title();?></h4>
+                                <?php the_content();?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-services text-center">
-                            <div class="services-icon">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_2.png" alt="">
-                            </div>
-                            <div class="services-caption">
-                                <h4>Trades & stocks</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-services text-center">
-                            <div class="services-icon">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_3.png" alt="">
-                            </div>
-                            <div class="services-caption">
-                                <h4>Audit & Assurance</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-services text-center">
-                            <div class="services-icon">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_2.png" alt="">
-                            </div>
-                            <div class="services-caption">
-                                <h4>Audit & Assurance</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-services text-center">
-                            <div class="services-icon">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_1.png" alt="">
-                            </div>
-                            <div class="services-caption">
-                                <h4>Audit & Assurance</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-services text-center">
-                            <div class="services-icon">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_3.png" alt="">
-                            </div>
-                            <div class="services-caption">
-                                <h4>Audit & Assurance</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php endwhile; wp_reset_postdata();?>
+
                 </div>
             </div>
         </div>
@@ -468,6 +430,7 @@
                     </div>
                 </div>
                 <div class="row">
+                    
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-recent-cap mb-30">
                             <div class="recent-img">
@@ -480,30 +443,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-recent-cap mb-30">
-                            <div class="recent-img">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_2.png" alt="">
-                            </div>
-                            <div class="recent-cap">
-                                <span>Audit</span>
-                                <h4><a href="single-blog.html">Amazing Places To Visit In Summer</a></h4>
-                                <p>Nov 30, 2020</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-recent-cap mb-30">
-                            <div class="recent-img">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/recent/rcent_3.png" alt="">
-                            </div>
-                            <div class="recent-cap">
-                                <span>Business planing</span>
-                                <h4><a href="single-blog.html">Amazing Places To Visit In Summer</a></h4>
-                                <p>Nov 30, 2020</p>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

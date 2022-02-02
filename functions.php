@@ -87,6 +87,53 @@ function slider(){
 
 add_action('init', 'slider');
 
+// Custom post type - Services
+
+function services(){
+
+    $labels = array(
+        'name'                  => _x( 'Services', 'Post type general name', 'buson' ),
+        'singular_name'         => _x( 'Service', 'Post type singular name', 'buson' ),
+        'menu_name'             => _x( 'Services', 'Admin Menu text', 'buson' ),
+        'name_admin_bar'        => _x( 'Service', 'Add New on Toolbar', 'buson' ),
+        'add_new'               => __( 'Add New', 'buson' ),
+        'add_new_item'          => __( 'Add New Service', 'buson' ),
+        'new_item'              => __( 'New service', 'buson' ),
+        'edit_item'             => __( 'Edit service', 'buson' ),
+        'view_item'             => __( 'View service', 'buson' ),
+        'all_items'             => __( 'All services', 'buson' ),
+        'search_items'          => __( 'Search services', 'buson' ),
+        'parent_item_colon'     => __( 'Parent services:', 'buson' ),
+        'not_found'             => __( 'No services found.', 'buson' ),
+        'not_found_in_trash'    => __( 'No services found in Trash.', 'buson' ),
+        'featured_image'        => _x( 'Service Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'buson' ),
+        'set_featured_image'    => _x( 'Set service image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'buson' ),
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Services',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'service' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'menu_icon'          => 'dashicons-networking',
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+        // 'taxonomies'         => array( 'category', 'post_tag' ),
+        'show_in_rest'       => true
+    );
+      
+    register_post_type( 'Services', $args );
+
+}
+
+add_action('init', 'services');
+
 
 
 
