@@ -3084,7 +3084,7 @@ hr {
     background: #fcfdff;
 }
 .recent-area .single-recent-cap .recent-cap span {
-    color: #ff656a;
+    color: #ff656a !important;
     font-size: 14px;
     margin-bottom: 20px;
     display: block;
@@ -5639,4 +5639,9 @@ del {
 }
 .switch-wrap {
     margin-bottom: 10px;
+}
+
+
+.post-categories a{
+    color: #e6373d;
 }
