@@ -19,8 +19,8 @@ get_header();?>
                     <?php 
                     
                         $args = array(
-                            'post_type' => 'cases',
-                            'posts_per_page' => -1,
+                            'post_type' => 'case',
+                            'posts_per_page' => 6,
                             'order' => 'ASC'
                         );
 

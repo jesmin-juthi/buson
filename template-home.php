@@ -166,24 +166,31 @@ get_header();?>
                     <!-- OwL -->
                     <div class="col-xl-8 col-lg-8 col-md-col-md-7">
                         <div class=" completed-active owl-carousel"> 
+
+                            <?php 
+                            
+                                $args = array(
+                                    'post_type' => 'case',
+                                    'posts_per_page' => 3,
+                                );
+                                $cases = new WP_Query($args);
+
+                                while($cases->have_posts()): $cases->the_post();
+                            
+                            ?>
+
                             <div class="single-cases-img">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/service/completed_case_1.png" alt="">
+                                <img src="<?php the_post_thumbnail_url();?>" alt="">
                                 <!-- img hover caption -->
                                <div class="single-cases-cap">
-                                    <h4><a href="case_details.html">Marketing Strategy</a></h4>
-                                    <p>Completely impact synergistic mindshare whereas premium services.</p>
+                                    <h4><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h4>
+                                    <?php the_excerpt();?>
                                     <span>Advisory</span>
                                </div>
                             </div>
-                            <div class="single-cases-img">
-                                <img src="<?php echo get_template_directory_uri()?>/assets/img/service/completed_case_2.png" alt="">
-                                <!-- img hover caption -->
-                               <div class="single-cases-cap">
-                                   <h4><a href="case_details.html">Marketing Strategy</a></h4>
-                                    <p>Completely impact synergistic mindshare whereas premium services.</p>
-                                    <span>Advisory</span>
-                               </div>
-                            </div>
+
+                            <?php endwhile; wp_reset_postdata();?>
+
                         </div>
                        
                     </div>

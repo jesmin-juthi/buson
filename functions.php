@@ -159,7 +159,7 @@ function buson_cpt(){
         'show_ui'            => true,
         'show_in_menu'       => true,
         'query_var'          => true,
-        'rewrite'            => array( 'slug' => 'cases' ),
+        'rewrite'            => array( 'slug' => 'case' ),
         'capability_type'    => 'post',
         'has_archive'        => true,
         'hierarchical'       => false,
@@ -170,7 +170,7 @@ function buson_cpt(){
         'show_in_rest'       => true
     );
       
-    register_post_type( 'Cases', $args );
+    register_post_type( 'case', $args );
 
 }
 
