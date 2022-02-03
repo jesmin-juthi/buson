@@ -178,7 +178,31 @@ add_action('init', 'buson_cpt');
 
 
 
+// theme option
 
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> __('Theme General Settings', 'buson'),
+		'menu_title'	=> __('Theme Settings', 'buson'),
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> __('Theme Header Settings', 'buson'),
+		'menu_title'	=> __('Header', 'buson'),
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> __('Theme Footer Settings', 'buson'),
+		'menu_title'	=> __('Footer', 'buson'),
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+}
 
 
 
