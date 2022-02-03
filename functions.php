@@ -195,6 +195,12 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> __('Header', 'buson'),
 		'parent_slug'	=> 'theme-general-settings',
 	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> __('Theme About Settings', 'buson'),
+		'menu_title'	=> __('About', 'buson'),
+		'parent_slug'	=> 'theme-general-settings',
+	));
 	
 	acf_add_options_sub_page(array(
 		'page_title' 	=> __('Theme Footer Settings', 'buson'),

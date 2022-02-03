@@ -1,3 +1,13 @@
+<?php 
+
+    $footer_one = get_field('footer_one', 'option');
+    echo "<pre>";
+    print_r($footer_one);
+    echo "</pre>";
+
+
+?>
+
 <footer>
        <!-- Footer Start-->
        <div class="footer-area footer-padding">
@@ -6,21 +16,22 @@
                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                       <div class="single-footer-caption mb-50">
                         <div class="single-footer-caption mb-30">
+
                              <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="<?php echo get_template_directory_uri()?>/assets/img/logo/logo2_footer.png" alt=""></a>
+                                <img src="<?php echo $footer_one['footer_logo']['url']?>" alt="<?php echo $footer_one['footer_logo']['name']?>">
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p>Lorem ipsum dolor sit amet, adipiscing elit, sed do eiusmod</p>
+                                    <p><?php echo $footer_one['footer_description']?></p>
                                </div>
                             </div>
                             <!-- social -->
                             <div class="footer-social">
-                                <a href="#"><i class="fab fa-facebook-square"></i></a>
-                                <a href="#"><i class="fab fa-twitter-square"></i></a>
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-pinterest-square"></i></a>
+                                <a href="#"><i class=""></i></a>
+                                <a href="#"><i class=""></i></a>
+                                <a href="#"><i class=""></i></a>
+                                <a href="#"><i class=""></i></a>
                             </div>
                         </div>
                       </div>
