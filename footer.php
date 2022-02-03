@@ -28,10 +28,14 @@
                             </div>
                             <!-- social -->
                             <div class="footer-social">
-                                <a href="#"><i class=""></i></a>
-                                <a href="#"><i class=""></i></a>
-                                <a href="#"><i class=""></i></a>
-                                <a href="#"><i class=""></i></a>
+                                <?php 
+                                
+                                    foreach ($footer_one['footer_socials_links'] as $foots){
+                                    ?>
+                                        <a href="<?php echo $foots['links']?>"><i class="<?php echo $foots['icons']?>"></i></a>
+                                    <?php }
+                                
+                                ?>
                             </div>
                         </div>
                       </div>
