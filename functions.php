@@ -1,6 +1,9 @@
 <?php 
 
 function buson_setup(){
+
+    // load_textdomain( 'buson', get_template_directory() . '/languages' );
+
     add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
     add_theme_support('html5', array('search-form'));
@@ -9,6 +12,14 @@ function buson_setup(){
     add_theme_support('post-formats', array('aside', 'gallery'));
     add_theme_support('automatic-feed-links');
     add_theme_support('customize-selective-refresh-widgets');
+
+    // Register Menus
+
+    register_nav_menus(array(
+        'primary' => __('Primary Menu', 'buson'),
+        'footer' => __('Footer Menu', 'buson'),
+    ));
+
 }
 add_action('after_setup_theme','buson_setup');
 
@@ -40,9 +51,9 @@ function buson_scripts(){
 
 add_action('wp_enqueue_scripts', 'buson_scripts');
 
-// Custom post type - Slider
+// Custom post types
 
-function slider(){
+function buson_cpt(){
 
     $labels = array(
         'name'                  => _x( 'Sliders', 'Post type general name', 'buson' ),
@@ -83,14 +94,6 @@ function slider(){
       
     register_post_type( 'Slider', $args );
 
-}
-
-add_action('init', 'slider');
-
-// Custom post type - Services
-
-function services(){
-
     $labels = array(
         'name'                  => _x( 'Services', 'Post type general name', 'buson' ),
         'singular_name'         => _x( 'Service', 'Post type singular name', 'buson' ),
@@ -130,9 +133,50 @@ function services(){
       
     register_post_type( 'Services', $args );
 
+    $labels = array(
+        'name'                  => _x( 'Cases', 'Post type general name', 'buson' ),
+        'singular_name'         => _x( 'Case', 'Post type singular name', 'buson' ),
+        'menu_name'             => _x( 'Cases', 'Admin Menu text', 'buson' ),
+        'name_admin_bar'        => _x( 'Case', 'Add New on Toolbar', 'buson' ),
+        'add_new'               => __( 'Add New', 'buson' ),
+        'add_new_item'          => __( 'Add New Case', 'buson' ),
+        'new_item'              => __( 'New Case', 'buson' ),
+        'edit_item'             => __( 'Edit Case', 'buson' ),
+        'view_item'             => __( 'View Case', 'buson' ),
+        'all_items'             => __( 'All Cases', 'buson' ),
+        'search_items'          => __( 'Search Cases', 'buson' ),
+        'parent_item_colon'     => __( 'Parent Cases:', 'buson' ),
+        'not_found'             => __( 'No Cases found.', 'buson' ),
+        'not_found_in_trash'    => __( 'No Cases found in Trash.', 'buson' ),
+        'featured_image'        => _x( 'Case Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'buson' ),
+        'set_featured_image'    => _x( 'Set Case Image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'buson' ),
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Cases',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'cases' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'menu_icon'          => 'dashicons-rest-api',
+        'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+        // 'taxonomies'         => array( 'category', 'post_tag' ),
+        'show_in_rest'       => true
+    );
+      
+    register_post_type( 'Cases', $args );
+
 }
 
-add_action('init', 'services');
+add_action('init', 'buson_cpt');
+
+
 
 
 
