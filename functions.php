@@ -172,6 +172,83 @@ function buson_cpt(){
       
     register_post_type( 'case', $args );
 
+    $labels = array(
+        'name'                  => _x( 'Teams', 'Post type general name', 'buson' ),
+        'singular_name'         => _x( 'Team', 'Post type singular name', 'buson' ),
+        'menu_name'             => _x( 'Teams', 'Admin Menu text', 'buson' ),
+        'name_admin_bar'        => _x( 'Teams', 'Add New on Toolbar', 'buson' ),
+        'add_new'               => __( 'Add New', 'buson' ),
+        'add_new_item'          => __( 'Add New Team Member', 'buson' ),
+        'new_item'              => __( 'New Team Member', 'buson' ),
+        'edit_item'             => __( 'Edit Team Member', 'buson' ),
+        'view_item'             => __( 'View Team Member', 'buson' ),
+        'all_items'             => __( 'All Team Members', 'buson' ),
+        'search_items'          => __( 'Search Team Members', 'buson' ),
+        'parent_item_colon'     => __( 'Parent Team Members:', 'buson' ),
+        'not_found'             => __( 'No Team Members found.', 'buson' ),
+        'not_found_in_trash'    => __( 'No Team Members found in Trash.', 'buson' ),
+        'featured_image'        => _x( 'Team Member Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'buson' ),
+        'set_featured_image'    => _x( 'Set Team Member Image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'buson' ),
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Team Member',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'teams' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'menu_icon'          => 'dashicons-buddicons-buddypress-logo',
+        'supports'           => array( 'title','thumbnail'),
+        // 'taxonomies'         => array( 'category', 'post_tag' ),
+        // 'show_in_rest'       => true
+    );
+      
+    register_post_type( 'teams', $args );
+
+    $labels = array(
+        'name'                  => _x( 'Testimonials', 'Post type general name', 'buson' ),
+        'singular_name'         => _x( 'Testimonial', 'Post type singular name', 'buson' ),
+        'menu_name'             => _x( 'Testimonials', 'Admin Menu text', 'buson' ),
+        'name_admin_bar'        => _x( 'Testimonial', 'Add New on Toolbar', 'buson' ),
+        'add_new'               => __( 'Add New', 'buson' ),
+        'add_new_item'          => __( 'Add New Testimonial', 'buson' ),
+        'new_item'              => __( 'New Testimonial', 'buson' ),
+        'edit_item'             => __( 'Edit Testimonial', 'buson' ),
+        'view_item'             => __( 'View Testimonial', 'buson' ),
+        'all_items'             => __( 'All Testimonials', 'buson' ),
+        'search_items'          => __( 'Search Testimonials', 'buson' ),
+        'parent_item_colon'     => __( 'Parent Testimonials:', 'buson' ),
+        'not_found'             => __( 'No Testimonials found.', 'buson' ),
+        'not_found_in_trash'    => __( 'No Testimonials found in Trash.', 'buson' ),
+        'featured_image'        => _x( 'Testimonial Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'buson' ),
+        'set_featured_image'    => _x( 'Set Testimonial image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'buson' ),
+    );     
+    $args = array(
+        'labels'             => $labels,
+        'description'        => 'Testimonial',
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'testimonial' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'menu_icon'          => 'dashicons-format-quote',
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+        // 'taxonomies'         => array( 'category', 'post_tag' ),
+        'show_in_rest'       => true
+    );
+    register_post_type( 'testimonial', $args );
+
 }
 
 add_action('init', 'buson_cpt');

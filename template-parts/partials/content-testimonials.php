@@ -4,53 +4,46 @@
                     <div class="col-xl-9 col-lg-9 col-md-9">
                         <div class="h1-testimonial-active">
                             <!-- Single Testimonial -->
+
+                            <?php 
+                            
+                                $args = array(
+
+                                    'post_type' => 'testimonial',
+                                    'posts_per_page' => 2,
+                                );
+
+                                $testimonial = new WP_Query($args);
+
+                                while ($testimonial->have_posts()) : $testimonial->the_post();
+
+                                $designation = get_field('designation');
+                                $ratings = get_field('ratings');
+                            
+                            ?>
+
                             <div class="single-testimonial pt-65">
                                 <!-- Testimonial tittle -->
                                 <div class="testimonial-icon mb-45">
-                                    <img src="assets/img/logo/testimonial.png" class="ani-btn " alt="">
+                                    <img src="<?php the_post_thumbnail_url();?>" alt="">
                                 </div>
                                  <!-- Testimonial Content -->
                                 <div class="testimonial-caption text-center">
-                                    <p>You can’t succeed if you just do what others do and 
-                                        follow the well-worn path. You need to create a new and 
-                                        original path for yourself. </p>
+                                    <?php the_content();?>
                                     <!-- Rattion -->
                                     <div class="testimonial-ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                    <?php 
+                                        for ($i = 0; $i < $ratings; $i++) {
+                                            echo '<i class="fas fa-star"></i>';
+                                        }
+                                    ?>
                                     </div>
                                     <div class="rattiong-caption">
-                                        <span>Clifford Frazier<span> - Colorlib Themes</span> </span>
+                                        <span><?php the_title();?><span> - <?php echo $designation;?></span> </span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single Testimonial -->
-                            <div class="single-testimonial pt-65">
-                                <!-- Testimonial tittle -->
-                                <div class="testimonial-icon mb-45">
-                                    <img src="assets/img/logo/testimonial.png"  class="ani-btn" alt="">
-                                </div>
-                                 <!-- Testimonial Content -->
-                                <div class="testimonial-caption text-center">
-                                    <p>You can’t succeed if you just do what others do and 
-                                        follow the well-worn path. You need to create a new and 
-                                        original path for yourself. </p>
-                                    <!-- Rattion -->
-                                    <div class="testimonial-ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="rattiong-caption">
-                                        <span>Clifford Frazier<span> - Colorlib Themes</span> </span>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php endwhile; wp_reset_postdata();?>
                         </div>
                     </div>
                </div>

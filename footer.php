@@ -1,9 +1,6 @@
 <?php 
 
     $footer_one = get_field('footer_one', 'option');
-    echo "<pre>";
-    print_r($footer_one);
-    echo "</pre>";
 
 
 ?>
