@@ -40,28 +40,24 @@
                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Company</h4>
-                               <ul>
-                                   <li><a href="index.html">Home</a></li>
-                                   <li><a href="about.html">About Us</a></li>
-                                   <li><a href="single-blog.html">Services</a></li>
-                                   <li><a href="#">Cases</a></li>
-                                   <li><a href="contact.html">  Contact Us</a></li>
-                               </ul>
+                               <?php 
+
+                                    if(is_active_sidebar('sidebar-1')){
+                                        dynamic_sidebar('sidebar-1');
+                                    }
+                                ?>
                            </div>
                        </div>
                    </div>
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Services</h4>
-                               <ul>
-                                   <li><a href="#">Commercial Cleaning</a></li>
-                                   <li><a href="#">Office Cleaning</a></li>
-                                   <li><a href="#">Building Cleaning</a></li>
-                                   <li><a href="#">Floor Cleaning</a></li>
-                                   <li><a href="#">Apartment Cleaning</a></li>
-                               </ul>
+                               <?php 
+
+                                    if(is_active_sidebar('sidebar-2')){
+                                        dynamic_sidebar('sidebar-2');
+                                    }
+                                ?>
                            </div>
                        </div>
                    </div>
@@ -87,9 +83,10 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-xl-12 ">
                             <div class="footer-copy-right text-center">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                <?php 
+                                    $copyright = get_field('copyright', 'option');
+                                ?>
+                                <p><?php echo $copyright;?></p>
                             </div>
                         </div>
                     </div>

@@ -254,6 +254,37 @@ function buson_cpt(){
 add_action('init', 'buson_cpt');
 
 
+// Sidebar Register 
+
+function buson_sidebar(){
+    // footer sidebar 1
+    register_sidebar( array(
+        'name'          => __( 'Footer One', 'buson' ),
+        'id'            => 'sidebar-1',
+        'description'   => __( 'Footer Menu' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+
+    // footer sidebar 2
+    register_sidebar( array(
+        'name'          => __( 'Footer Two', 'buson' ),
+        'id'            => 'sidebar-2',
+        'description'   => __( 'Footer Menu' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+}
+
+add_action('widgets_init', 'buson_sidebar');
+
+
+
+
 
 // theme option
 
@@ -276,6 +307,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title' 	=> __('Theme About Settings', 'buson'),
 		'menu_title'	=> __('About', 'buson'),
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> __('Theme Copyright Settings', 'buson'),
+		'menu_title'	=> __('Copyright', 'buson'),
 		'parent_slug'	=> 'theme-general-settings',
 	));
 	
