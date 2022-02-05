@@ -17,6 +17,9 @@ Buson is a multipage agency wordpress theme.
   Install it in your wordpress dashboard
   Activate the theme 
 ``` 
+
+###### Note : You need "ACF Pro" plugin to have all the features. 
+
 ## Developed By
 
 - [@jesmin-juthi](https://www.github.com/jesmin-juthi)

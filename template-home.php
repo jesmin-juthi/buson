@@ -74,14 +74,25 @@ get_header();?>
         <!-- services Area End-->
 
         <!-- Request Back Start -->
-        <div class="request-back-area section-padding30">
+    
+        <?php 
+        
+            $bg_color = get_field('bg_color', 'option');
+            $cta_title = get_field('cta_title', 'option');
+            $cta_desc = get_field('cta_desc', 'option');
+            $btn_text = get_field('btn_text', 'option');
+            $btn_url = get_field('btn_url', 'option');
+        
+        ?>
+
+        <div class="request-back-area section-padding30" style="background:<?php echo $bg_color; ?>">
             <div class="container">
                 <div class="row d-flex justify-content-between">
                     <div class="col-xl-8 mx-auto text-center">
                         <div class="request-content">
-                            <h3>Request for  Call Back</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore,</p>
-                            <a href="#" class="btn trusted-btn">Contact Us</a>
+                            <h3><?php echo $cta_title;?></h3>
+                            <p><?php echo $cta_desc;?></p>
+                            <a href="<?php echo $btn_url;?>" class="btn trusted-btn"><?php echo $btn_text;?></a>
                         </div>
                     </div>
                 </div>

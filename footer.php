@@ -64,12 +64,12 @@
                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                        <div class="single-footer-caption mb-50">
                            <div class="footer-tittle">
-                               <h4>Get in Touch</h4>
-                               <ul>
-                                <li><a href="#">152-515-6565</a></li>
-                                <li><a href="#"> Demomail@gmail.com</a></li>
-                                <li><a href="#">New Orleans, USA</a></li>
-                            </ul>
+                               <?php 
+
+                                    if(is_active_sidebar('sidebar-3')){
+                                        dynamic_sidebar('sidebar-3');
+                                    }
+                                ?>
                            </div>
                        </div>
                    </div>

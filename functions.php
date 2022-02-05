@@ -278,6 +278,17 @@ function buson_sidebar(){
         'before_title'  => '<h4>',
         'after_title'   => '</h4>',
     ) );
+
+    // footer sidebar 3
+    register_sidebar( array(
+        'name'          => __( 'Footer Three', 'buson' ),
+        'id'            => 'sidebar-3',
+        'description'   => __( 'Footer Menu' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
 }
 
 add_action('widgets_init', 'buson_sidebar');
@@ -313,6 +324,12 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page(array(
 		'page_title' 	=> __('Theme Copyright Settings', 'buson'),
 		'menu_title'	=> __('Copyright', 'buson'),
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> __('Theme CTA Settings', 'buson'),
+		'menu_title'	=> __('Cta', 'buson'),
 		'parent_slug'	=> 'theme-general-settings',
 	));
 	
