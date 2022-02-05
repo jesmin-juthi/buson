@@ -107,12 +107,19 @@ get_header();?>
                     <!-- slider Heading -->
                     <div class="col-xl-4 col-lg-4 col-md-8">
                         <div class="single-cases-info mb-30">
-                            <h3>Completed Cases</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ali
-                                quUt enim ad minim veniam.
-                                quis nostrud exercitation ullamco laboris 
-                                nierci si ut.</p>
-                            <a href="gallery.html" class="border-btn border-btn2">See more</a>
+                        
+                            <?php 
+                            
+                                $case_title = get_field('case_title', 'option');
+                                $case_desc = get_field('case_desc', 'option');
+                                $case_btn = get_field('case_btn', 'option');
+                                $case_btn_link = get_field('case_btn_link', 'option');
+                            
+                            ?>
+
+                            <h3><?php echo $case_title; ?></h3>
+                            <p><?php echo $case_desc; ?></p>
+                            <a href="<?php echo $case_btn_link;?>" class="border-btn border-btn2"><?php echo $case_btn;?></a>
                         </div>
                     </div>
                     <!-- OwL -->
