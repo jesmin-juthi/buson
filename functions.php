@@ -257,6 +257,18 @@ add_action('init', 'buson_cpt');
 // Sidebar Register 
 
 function buson_sidebar(){
+
+    // Main Sidebar
+    register_sidebar( array(
+        'name'          => __( 'Main Sidebar', 'buson' ),
+        'id'            => 'msb',
+        'description'   => __( 'Main Sidebar' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+
     // footer sidebar 1
     register_sidebar( array(
         'name'          => __( 'Footer One', 'buson' ),
